@@ -1,0 +1,15 @@
+{
+  "name": "english-word-log",
+  "description": "英単語記録帳",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptiringo/english-word-log.git"
+  },
+  "author": "ptiringo",
+  "devDependencies": {
+    "serve": "^9.4.0"
+  }
+}
