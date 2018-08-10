@@ -10,6 +10,6 @@
   },
   "author": "ptiringo",
   "devDependencies": {
-    "serve": "^9.4.0"
+    "serve": "^9.4.2"
   }
 }
