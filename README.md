@@ -1,4 +1,4 @@
-# english-word-log
+# 英単語記録帳
 
 英単語記録帳 Web アプリケーション
 
