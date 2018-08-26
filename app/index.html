@@ -8,7 +8,25 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <h1>{{ message.title }}</h1>
+        <table>
+            <tr>
+                <th>登録日</th>
+                <th>レベル</th>
+                <th>単語</th>
+                <th>意味</th>
+            </tr>
+            <tr v-for="word in words">
+                <td>{{ word.registeredAt }}</td>
+                <td>{{ word.level }}</td>
+                <td>{{ word.word }}</td>
+                <td>{{ word.meaning }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
