@@ -24,5 +24,10 @@ var app = new Vue({
         registeredAt: "2018-08-27T00:40:00Z"
       }
     ]
+  },
+  methods: {
+    addWord: function(event) {
+      console.log(event.target);
+    }
   }
 });
