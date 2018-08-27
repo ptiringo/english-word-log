@@ -26,12 +26,14 @@
                 <th>レベル</th>
                 <th>単語</th>
                 <th>意味</th>
+                <th>リンク</th>
             </tr>
             <tr v-for="word in words">
                 <td>{{ word.registeredAt }}</td>
                 <td>{{ word.level }}</td>
                 <td>{{ word.word }}</td>
                 <td>{{ word.meaning }}</td>
+                <td><a v-bind:href="`https://ejje.weblio.jp/content/${word.word}`">Weblio</a>, <a v-bind:href="`https://eow.alc.co.jp/search?q=${word.word}`">英辞郎</a></td>
             </tr>
         </table>
     </div>
