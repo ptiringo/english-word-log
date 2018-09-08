@@ -2,7 +2,8 @@
   "name": "english-word-log",
   "description": "英単語記録帳",
   "scripts": {
-    "start": "firebase serve"
+    "start": "firebase serve",
+    "deploy": "firebase deploy"
   },
   "repository": {
     "type": "git",
