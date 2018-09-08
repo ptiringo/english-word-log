@@ -1,45 +1,46 @@
 var DateTime = luxon.DateTime;
 
+var firestore = firebase.firestore();
+firestore.settings({ timestampsInSnapshots: true });
+
 var messages = {
   title: "英単語記録帳"
 };
-
-var words = [
-  {
-    word: "word",
-    meaning: "単語",
-    level: 1,
-    registeredAt: DateTime.fromISO("2018-08-26T00:30:00Z")
-  },
-  {
-    word: "meaning",
-    meaning: "意味",
-    level: 1,
-    registeredAt: DateTime.fromISO("2018-08-26T00:40:00Z")
-  },
-  {
-    word: "log",
-    meaning: "記録",
-    level: 3,
-    registeredAt: DateTime.fromISO("2018-08-27T00:40:00Z")
-  }
-];
 
 var app = new Vue({
   el: "#app",
   data: {
     messages: messages,
-    words: words
+    words: []
+  },
+  created: function() {
+    firestore
+      .collection("words")
+      .get()
+      .then(querySnapshot =>
+        querySnapshot.forEach(doc => this.words.push(doc.data()))
+      );
   },
   methods: {
     addWord: function(event) {
       var form = event.target;
-      words.push({
+      var word = {
         word: form.word.value,
         meaning: form.meaning.value,
         level: form.level.value,
-        registeredAt: DateTime.local()
-      });
+        registeredAt: DateTime.local().toJSDate()
+      };
+      words.push(word);
+
+      firestore
+        .collection("words")
+        .add(word)
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
     }
   }
 });
