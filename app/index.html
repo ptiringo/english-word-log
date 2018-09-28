@@ -33,7 +33,7 @@
                 <th>リンク</th>
             </tr>
             <tr v-for="word in words">
-                <td>{{ word.registeredAt }}</td>
+                <td>{{ word.registeredAt | date }}</td>
                 <td>{{ word.level }}</td>
                 <td>{{ word.word }}</td>
                 <td>{{ word.meaning }}</td>
