@@ -19,7 +19,9 @@ const app = new Vue({
       .get()
       .then(querySnapshot =>
         querySnapshot.forEach(doc => {
+          console.log(doc);
           this.words.push({
+            id: doc.id,
             word: doc.get("word"),
             meaning: doc.get("meaning"),
             level: doc.get("level"),
@@ -31,19 +33,33 @@ const app = new Vue({
   methods: {
     addWord: function(event) {
       const form = event.target;
-
-      words.push({
+      const word = {
         word: form.word.value,
         meaning: form.meaning.value,
         level: form.level.value,
         registeredAt: DateTime.local().toJSDate()
-      });
+      };
 
       firestore
         .collection("words")
         .add(word)
-        .then(docRef => console.log("Document written with ID: ", docRef.id))
+        .then(docRef => {
+          word.id = docRef.id;
+          word.registeredAt = DateTime.fromJSDate(word.registeredAt);
+          this.words.push(word);
+        })
         .catch(error => console.error("Error adding document: ", error));
+    },
+    deleteWord: function(event, id) {
+      const app = this;
+      firestore
+        .collection("words")
+        .doc(id)
+        .delete()
+        .then(() => (app.words = app.words.filter(x => x.id != id)))
+        .catch(function(error) {
+          console.error("Error removing document: ", error);
+        });
     }
   },
   filters: {
