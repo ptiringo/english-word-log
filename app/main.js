@@ -13,9 +13,17 @@ const app = new Vue({
     messages: messages,
     words: []
   },
+  computed: {
+    sortedWords: function() {
+      return this.words
+        ? this.words.sort((a, b) => b.registeredAt - a.registeredAt)
+        : null;
+    }
+  },
   created: function() {
     firestore
       .collection("words")
+      .orderBy("registeredAt", "desc")
       .get()
       .then(querySnapshot =>
         querySnapshot.forEach(doc => {
