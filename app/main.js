@@ -19,7 +19,6 @@ const app = new Vue({
       .get()
       .then(querySnapshot =>
         querySnapshot.forEach(doc => {
-          console.log(doc);
           this.words.push({
             id: doc.id,
             word: doc.get("word"),
@@ -57,14 +56,10 @@ const app = new Vue({
         .doc(id)
         .delete()
         .then(() => (app.words = app.words.filter(x => x.id != id)))
-        .catch(function(error) {
-          console.error("Error removing document: ", error);
-        });
+        .catch(error => console.error("Error removing document: ", error));
     }
   },
   filters: {
-    date: function(datetime) {
-      return datetime.toFormat("yyyy/MM/dd");
-    }
+    date: datetime => datetime.toFormat("yyyy/MM/dd")
   }
 });
