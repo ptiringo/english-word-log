@@ -7,11 +7,16 @@
     <title>英単語記録帳</title>
     <script src="/__/firebase/5.4.1/firebase-app.js"></script>
     <script src="/__/firebase/5.4.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/5.4.1/firebase-auth.js"></script>
     <script src="/__/firebase/5.4.1/firebase-functions.js"></script>
     <script src="/__/firebase/init.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__ja.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth.css" />
 </head>
 
 <body>
+    <div id="firebaseui-auth-container"></div>
     <div id="app">
         <h1>{{ messages.title }}</h1>
 
@@ -48,6 +53,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="main.js"></script>
+    <script src="auth.js"></script>
 </body>
 
 </html>
