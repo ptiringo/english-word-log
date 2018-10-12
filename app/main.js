@@ -11,16 +11,25 @@ const app = new Vue({
   el: "#app",
   data: {
     messages: messages,
-    words: []
+    words: [],
+    user: null
   },
   computed: {
     sortedWords: function() {
       return this.words
         ? this.words.sort((a, b) => b.registeredAt - a.registeredAt)
         : null;
+    },
+    logined: function() {
+      return this.user != null;
     }
   },
   created: function() {
+    firebase.auth().onAuthStateChanged(user => {
+      console.log(user);
+      this.user = user;
+    });
+
     firestore
       .collection("words")
       .orderBy("registeredAt", "desc")
@@ -65,6 +74,10 @@ const app = new Vue({
         .delete()
         .then(() => (app.words = app.words.filter(x => x.id != id)))
         .catch(error => console.error("Error removing document: ", error));
+    },
+    logout: function(event) {
+      console.log("called");
+      firebase.auth().signOut();
     }
   },
   filters: {
