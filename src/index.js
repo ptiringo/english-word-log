@@ -1,6 +1,31 @@
-const DateTime = luxon.DateTime;
+import Vue from "vue";
+import { DateTime } from "luxon";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import * as firebaseui from "firebaseui";
+import "firebaseui/dist/firebaseui.css";
+
+// Initialize Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyC5FYU6otVNVX7KBjN_0p2yF8AvAHOY0FU",
+  authDomain: "english-word-log.firebaseapp.com",
+  databaseURL: "https://english-word-log.firebaseio.com",
+  projectId: "english-word-log",
+  storageBucket: "english-word-log.appspot.com",
+  messagingSenderId: "913767669176"
+});
+
+new firebaseui.auth.AuthUI(firebase.auth()).start(
+  "#firebaseui-auth-container",
+  {
+    signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+    signInSuccessUrl: "https://english-word-log.tokyo/"
+  }
+);
 
 const firestore = firebase.firestore();
+
 firestore.settings({ timestampsInSnapshots: true });
 
 const messages = {
@@ -26,7 +51,6 @@ const app = new Vue({
   },
   created: function() {
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
       this.user = user;
     });
 
@@ -76,7 +100,6 @@ const app = new Vue({
         .catch(error => console.error("Error removing document: ", error));
     },
     logout: function(event) {
-      console.log("called");
       firebase.auth().signOut();
     }
   },

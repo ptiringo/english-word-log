@@ -3,11 +3,26 @@
   "description": "英単語記録帳",
   "scripts": {
     "start": "firebase serve",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "build": "webpack --progress",
+    "dev": "webpack-dev-server --open --hot"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ptiringo/english-word-log.git"
   },
-  "author": "ptiringo"
+  "author": "ptiringo",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "firebase": "^5.5.4",
+    "firebaseui": "^3.4.1",
+    "luxon": "^1.4.3",
+    "vue": "^2.5.17"
+  }
 }
