@@ -5,7 +5,6 @@ import "firebase/auth";
 import "firebase/firestore";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
-// import App from "./App.vue";
 import router from "./router.js";
 
 // Initialize Firebase
