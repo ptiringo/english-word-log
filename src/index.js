@@ -3,9 +3,13 @@ import "./firebase-init.js";
 
 import Vue from "vue";
 import Vuex from "vuex";
+import ElementUI from "element-ui";
 import router from "./router.js";
 
+import "element-ui/lib/theme-chalk/index.css";
+
 Vue.use(Vuex);
+Vue.use(ElementUI);
 
 const messages = {
   title: "英単語記録帳"
