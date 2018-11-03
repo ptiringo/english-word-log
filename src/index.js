@@ -1,34 +1,21 @@
-import firebase from "firebase/app";
+// Firebase
 import "./firebase-init.js";
 
+// Vue
 import Vue from "vue";
 import Vuex from "vuex";
-import ElementUI from "element-ui";
-import router from "./router.js";
+import Router from "./router.js";
+import Home from "./views/Home.vue";
 
+// Element UI
+import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(Vuex);
 Vue.use(ElementUI);
 
-const messages = {
-  title: "英単語記録帳"
-};
-
 const app = new Vue({
   el: "#app",
-  data: {
-    messages: messages
-  },
-  computed: {
-    logined: function() {
-      return this.user != null;
-    }
-  },
-  methods: {
-    logout: function(event) {
-      firebase.auth().signOut();
-    }
-  },
-  router: router
+  render: h => h(Home),
+  router: Router
 });
