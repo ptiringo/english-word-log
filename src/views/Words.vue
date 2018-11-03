@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div>
     <!-- 単語登録フォーム -->
     <form v-on:submit.prevent="addWord">
       <label>単語 <input type="text" name="word"></label>
@@ -27,7 +27,7 @@
         <td><button type="button" v-on:click="deleteWord($event, word.id)">削除</button></td>
       </tr>
     </table>
-</div>
+  </div>
 </template>
 
 <script>
