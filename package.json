@@ -4,7 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --hot",
     "deploy": "firebase deploy",
-    "build": "webpack --progress"
+    "build": "webpack --mode=production --progress"
   },
   "repository": {
     "type": "git",
