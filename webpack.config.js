@@ -1,5 +1,8 @@
+"use strict";
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -9,7 +12,7 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    openPage: "dist/index.html"
+    openPage: "index.html"
   },
   resolve: {
     alias: {
@@ -40,5 +43,17 @@ module.exports = {
       }
     ]
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "./static"),
+        to: "static",
+        ignore: [".*"]
+      }
+    ]),
+    new HtmlWebpackPlugin({
+      template: "src/index.html"
+    })
+  ]
 };
