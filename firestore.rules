@@ -1,7 +1,7 @@
 service cloud.firestore {
   match /databases/{database}/documents {
     match /words/{word} {
-      allow read, write;
+      allow get, update, create, delete: if request.auth.uid == resource.data.author_id;
     }
   }
 }
