@@ -1,7 +1,13 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /words/{word} {
-      allow get, update, create, delete: if request.auth.uid == resource.data.author_id;
+    function isUserAuthenticated(uid) {
+      return request.auth.uid == uid;
+    }
+    match /users/{uid} {
+      allow read, write: if isUserAuthenticated(uid);
+      match /words/{wordId} {
+        allow read, write: if isUserAuthenticated(uid);
+      }
     }
   }
 }

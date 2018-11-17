@@ -4,6 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --hot",
     "deploy": "firebase deploy",
+    "deployFirestore": "firebase deploy --only firestore:rules",
     "build": "webpack --mode=production --progress"
   },
   "repository": {

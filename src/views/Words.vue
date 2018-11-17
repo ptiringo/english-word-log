@@ -52,8 +52,9 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       this.user = user;
       firestore
+        .collection("users")
+        .doc(this.user.uid)
         .collection("words")
-        .where("author_id", "==", this.user.uid)
         .orderBy("registeredAt", "desc")
         .get()
         .then(querySnapshot =>
@@ -65,8 +66,7 @@ export default {
               level: doc.get("level"),
               registeredAt: DateTime.fromJSDate(
                 doc.get("registeredAt").toDate()
-              ),
-              authorId: doc.get("author_id")
+              )
             });
           })
         );
@@ -79,11 +79,12 @@ export default {
         word: form.word.value,
         meaning: form.meaning.value,
         level: form.level.value,
-        registeredAt: DateTime.local().toJSDate(),
-        authorId: this.user.uid
+        registeredAt: DateTime.local().toJSDate()
       };
 
       firestore
+        .collection("users")
+        .doc(this.user.uid)
         .collection("words")
         .add(word)
         .then(docRef => {
@@ -96,6 +97,8 @@ export default {
     deleteWord: function(event, id) {
       const app = this;
       firestore
+        .collection("users")
+        .doc(this.user.uid)
         .collection("words")
         .doc(id)
         .delete()
