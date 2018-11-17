@@ -51,23 +51,26 @@ export default {
   created: function() {
     firebase.auth().onAuthStateChanged(user => {
       this.user = user;
+      firestore
+        .collection("words")
+        .where("author_id", "==", this.user.uid)
+        .orderBy("registeredAt", "desc")
+        .get()
+        .then(querySnapshot =>
+          querySnapshot.forEach(doc => {
+            this.words.push({
+              id: doc.id,
+              word: doc.get("word"),
+              meaning: doc.get("meaning"),
+              level: doc.get("level"),
+              registeredAt: DateTime.fromJSDate(
+                doc.get("registeredAt").toDate()
+              ),
+              authorId: doc.get("author_id")
+            });
+          })
+        );
     });
-
-    firestore
-      .collection("words")
-      .orderBy("registeredAt", "desc")
-      .get()
-      .then(querySnapshot =>
-        querySnapshot.forEach(doc => {
-          this.words.push({
-            id: doc.id,
-            word: doc.get("word"),
-            meaning: doc.get("meaning"),
-            level: doc.get("level"),
-            registeredAt: DateTime.fromJSDate(doc.get("registeredAt").toDate())
-          });
-        })
-      );
   },
   methods: {
     addWord: function(event) {
@@ -76,7 +79,8 @@ export default {
         word: form.word.value,
         meaning: form.meaning.value,
         level: form.level.value,
-        registeredAt: DateTime.local().toJSDate()
+        registeredAt: DateTime.local().toJSDate(),
+        authorId: this.user.uid
       };
 
       firestore
