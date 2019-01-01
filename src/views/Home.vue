@@ -4,16 +4,29 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+    <link
+      rel="shortcut icon"
+      href="static/favicon.ico"
+      type="image/x-icon"
+    >
     <title>英単語記録帳</title>
   </head>
 
   <body>
     <div id="app">
       <el-container>
-        <el-aside id="side" width="200px">
-          <el-menu id="menu" :router="true">
+        <el-aside
+          id="side"
+          width="200px"
+        >
+          <el-menu
+            id="menu"
+            :router="true"
+          >
             <i class="el-icon-menu"></i>
             <span>英単語記録帳</span>
             <el-menu-item index="/">
@@ -24,10 +37,16 @@
         </el-aside>
         <el-container>
           <el-header id="header">
-            <router-link to="/login">ログイン</router-link><button type="button" v-show="logined" v-on:click="logout">ログアウト</button>
+            <router-link
+              to="/login"
+              v-show="!$store.getters.logined"
+            >ログイン</router-link><button
+              type="button"
+              v-on:click="logout"
+              v-show="$store.getters.logined"
+            >ログアウト</button>
           </el-header>
           <el-main>
-            <h1>{{ messages.title }}</h1>
             <router-view />
           </el-main>
           <el-footer>Footer</el-footer>
@@ -40,25 +59,9 @@
 </template>
 
 <script>
-import { DateTime } from "luxon";
 import firebase from "firebase/app";
 
-const firestore = firebase.firestore();
-
-const messages = {
-  title: "英単語記録帳"
-};
-
 export default {
-  data: () => ({
-    messages: messages,
-    user: null
-  }),
-  computed: {
-    logined: function() {
-      return this.user != null;
-    }
-  },
   methods: {
     logout: function(event) {
       firebase.auth().signOut();

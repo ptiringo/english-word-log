@@ -38,8 +38,7 @@ const firestore = firebase.firestore();
 
 export default {
   data: () => ({
-    words: [],
-    user: null
+    words: []
   }),
   computed: {
     sortedWords: function() {
@@ -49,28 +48,23 @@ export default {
     }
   },
   created: function() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.user = user;
-      firestore
-        .collection("users")
-        .doc(this.user.uid)
-        .collection("words")
-        .orderBy("registeredAt", "desc")
-        .get()
-        .then(querySnapshot =>
-          querySnapshot.forEach(doc => {
-            this.words.push({
-              id: doc.id,
-              word: doc.get("word"),
-              meaning: doc.get("meaning"),
-              level: doc.get("level"),
-              registeredAt: DateTime.fromJSDate(
-                doc.get("registeredAt").toDate()
-              )
-            });
-          })
-        );
-    });
+    firestore
+      .collection("users")
+      .doc(this.$store.getters.user.uid)
+      .collection("words")
+      .orderBy("registeredAt", "desc")
+      .get()
+      .then(querySnapshot =>
+        querySnapshot.forEach(doc => {
+          this.words.push({
+            id: doc.id,
+            word: doc.get("word"),
+            meaning: doc.get("meaning"),
+            level: doc.get("level"),
+            registeredAt: DateTime.fromJSDate(doc.get("registeredAt").toDate())
+          });
+        })
+      );
   },
   methods: {
     addWord: function(event) {
@@ -84,7 +78,7 @@ export default {
 
       firestore
         .collection("users")
-        .doc(this.user.uid)
+        .doc(this.$store.getters.user.uid)
         .collection("words")
         .add(word)
         .then(docRef => {
@@ -98,7 +92,7 @@ export default {
       const app = this;
       firestore
         .collection("users")
-        .doc(this.user.uid)
+        .doc(this.$store.getters.user.uid)
         .collection("words")
         .doc(id)
         .delete()
