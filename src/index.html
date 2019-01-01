@@ -9,11 +9,17 @@
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" v-cloak>
     <button type="button" v-show="$store.getters.logined" v-on:click="logout">ログアウト</button>
     <h1>{{ messages.title }}</h1>
     <router-view />
   </div>
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
 </body>
 
 </html>
