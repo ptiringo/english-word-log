@@ -23,8 +23,7 @@
           </el-menu>
         </el-aside>
         <el-container>
-          <el-header id="header">
-            <router-link to="/login" v-show="!$store.getters.logined">ログイン</router-link><button type="button" v-on:click="logout" v-show="$store.getters.logined">ログアウト</button>
+          <el-header id="header"><button type="button" v-on:click="logout" v-show="$store.getters.logined">ログアウト</button>
           </el-header>
           <el-main>
             <router-view />
