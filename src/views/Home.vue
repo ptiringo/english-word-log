@@ -43,7 +43,10 @@ import firebase from "firebase/app";
 export default {
   methods: {
     logout: function(event) {
-      firebase.auth().signOut();
+      firebase
+        .auth()
+        .signOut()
+        .then(() => this.$router.replace("Login"));
     }
   }
 };
