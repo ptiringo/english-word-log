@@ -18,7 +18,22 @@ npm run deploy
 
 ### ライブラリのアップロード
 
+#### バージョンの古いパッケージを表示
+
 ```
 npm outdated
+```
+
+#### バージョンの古いパッケージをまとめてアップグレード
+
+```
 npm upgrade
 ```
+
+#### メジャーバージョンの古いパッケージもアップグレード
+
+```
+ncu
+```
+
+(\*) [npm-check-updates ](https://github.com/tjunnone/npm-check-updates) がインストールされている必要あり。
