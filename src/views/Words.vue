@@ -2,7 +2,7 @@
   <div>
     <!-- 単語登録フォーム -->
     <form v-on:submit.prevent="addWord">
-      <label>単語 <input type="text" name="word"></label>
+      <label>単語 <input ref="word" type="text" name="word"></label>
       <label>意味 <input type="text" name="meaning"></label>
       <label>レベル <input type="text" name="level"></label>
       <button type="submit">登録</button>
@@ -65,6 +65,9 @@ export default {
           });
         })
       );
+  },
+  mounted: function() {
+    this.$refs.word.focus();
   },
   methods: {
     addWord: function(event) {
