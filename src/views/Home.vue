@@ -46,7 +46,10 @@ export default {
       firebase
         .auth()
         .signOut()
-        .then(() => this.$router.replace("Login"));
+        .then(() => {
+          this.$store.commit("logout");
+          this.$router.replace("Login");
+        });
     }
   }
 };
