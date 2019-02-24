@@ -3,7 +3,7 @@
   "description": "英単語記録帳",
   "scripts": {
     "start": "webpack-dev-server --open --hot",
-    "deploy": "firebase deploy",
+    "deploy": "npm run build && firebase deploy",
     "deployFirestore": "firebase deploy --only firestore:rules",
     "build": "webpack --mode=production --progress"
   },

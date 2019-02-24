@@ -16,6 +16,8 @@ npm start
 npm run deploy
 ```
 
+(\*) [firebase-tools](https://github.com/firebase/firebase-tools) がインストールされている必要あり。
+
 ### ライブラリのアップロード
 
 #### バージョンの古いパッケージを表示
@@ -36,4 +38,4 @@ npm upgrade
 ncu
 ```
 
-(\*) [npm-check-updates ](https://github.com/tjunnone/npm-check-updates) がインストールされている必要あり。
+(\*) [npm-check-updates](https://github.com/tjunnone/npm-check-updates) がインストールされている必要あり。
