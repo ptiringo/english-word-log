@@ -8,6 +8,19 @@
       <button type="submit">登録</button>
     </form>
 
+    <v-form v-on:submit.prevent="addWord">
+      <v-container>
+        <v-layout>
+          <v-flex xs12 md4>
+            <v-text-field label="単語"></v-text-field>
+            <v-text-field label="意味"></v-text-field>
+            <v-text-field label="レベル"></v-text-field>
+            <button type="submit">登録</button>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-form>
+
     <!-- 登録された単語の表示領域 -->
     <table>
       <tr>

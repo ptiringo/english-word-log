@@ -7,11 +7,11 @@ import Router from "./router.js";
 import Home from "./views/Home.vue";
 import Store from "./store.js";
 
-// Element UI
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
+// Vuetify
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 
-Vue.use(ElementUI);
+Vue.use(Vuetify);
 
 let app = "";
 

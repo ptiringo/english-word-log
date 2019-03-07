@@ -11,26 +11,20 @@
 
   <body>
     <div id="app">
-      <el-container>
-        <el-aside id="side" width="200px">
-          <el-menu id="menu" :router="true">
-            <i class="el-icon-menu"></i>
-            <span>英単語記録帳</span>
-            <el-menu-item index="/">
-              <i class="el-icon-menu"></i>
-              <span>Home</span>
-            </el-menu-item>
-          </el-menu>
-        </el-aside>
-        <el-container>
-          <el-header id="header"><button type="button" v-on:click="logout" v-show="$store.getters.logined">ログアウト</button>
-          </el-header>
-          <el-main>
-            <router-view />
-          </el-main>
-          <el-footer>Footer</el-footer>
-        </el-container>
-      </el-container>
+      <v-app>
+        <v-container>
+          <v-toolbar>
+            <v-toolbar-title>単語帳</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn flat @click="logout" v-show="$store.getters.logined">
+              logout<v-icon right>logout</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <button type="button" v-on:click="logout" v-show="$store.getters.logined">ログアウト</button>
+
+          <router-view />
+        </v-container>
+      </v-app>
     </div>
   </body>
 
