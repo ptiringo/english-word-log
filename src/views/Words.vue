@@ -11,11 +11,17 @@
     <v-form v-on:submit.prevent="addWord">
       <v-container>
         <v-layout>
-          <v-flex xs12 md4>
+          <v-flex xs4>
             <v-text-field label="単語"></v-text-field>
+          </v-flex>
+          <v-flex xs4>
             <v-text-field label="意味"></v-text-field>
+          </v-flex>
+          <v-flex xs1>
             <v-text-field label="レベル"></v-text-field>
-            <button type="submit">登録</button>
+          </v-flex>
+          <v-flex xs3>
+            <v-btn>登録</v-btn>
           </v-flex>
         </v-layout>
       </v-container>
