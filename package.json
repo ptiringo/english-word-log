@@ -26,7 +26,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "firebase": "^5.8.5",
+    "firebase": "^5.8.6",
     "firebaseui": "^3.5.2",
     "luxon": "^1.11.4",
     "vue": "^2.6.8",
