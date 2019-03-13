@@ -13,16 +13,16 @@
     <div id="app">
       <v-app>
         <v-container>
-          <v-toolbar absolute dark>
+          <v-toolbar absolute dark app>
             <v-toolbar-title>英単語記録帳</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn flat @click="logout" v-show="$store.getters.logined">
               logout<v-icon right>logout</v-icon>
             </v-btn>
           </v-toolbar>
-        </v-container>
-        <v-container>
-          <router-view />
+          <v-content>
+            <router-view />
+          </v-content>
         </v-container>
       </v-app>
     </div>

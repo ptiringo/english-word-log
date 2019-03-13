@@ -21,7 +21,7 @@
     </v-form>
 
     <!-- 登録された単語の表示領域 -->
-    <v-data-table :headers="headers" :items="sortedWords">
+    <v-data-table :headers="headers" :items="words" :pagination="pagination">
       <template v-slot:items="props">
         <td>{{ props.item.registeredAt | date }}</td>
         <td>{{ props.item.level }}</td>
@@ -53,18 +53,18 @@ export default {
       { text: "リンク", value: "link" },
       { text: "削除", value: "delete" }
     ],
+    pagination: {
+      descending: true,
+      page: 1,
+      rowsPerPage: 10,
+      sortBy: "registeredAt",
+      totalItems: 0
+    },
     words: [],
     newWord: "",
     newWordMeaning: "",
     newWordLevel: null
   }),
-  computed: {
-    sortedWords: function() {
-      return this.words
-        ? this.words.sort((a, b) => b.registeredAt - a.registeredAt)
-        : null;
-    }
-  },
   created: function() {
     firestore
       .collection("users")
