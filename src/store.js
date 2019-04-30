@@ -9,6 +9,11 @@ const store = new Vuex.Store({
   },
   getters: {
     user: state => state.user,
+    userName: state => {
+      const user = state.user;
+      if (!user) return "";
+      return user.isAnonymous ? "guest" : user.displayName;
+    },
     logined: state => state.user != null
   },
   mutations: {

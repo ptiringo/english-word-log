@@ -16,9 +16,12 @@
           <v-toolbar absolute dark app>
             <v-toolbar-title>英単語記録帳</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn flat @click="logout" v-show="$store.getters.logined">
-              logout<v-icon right>logout</v-icon>
-            </v-btn>
+            <v-toolbar-items>
+              <v-btn flat :disabled="true" v-show="$store.getters.logined"> {{ $store.getters.userName }}</v-btn>
+              <v-btn flat @click="logout" v-show="$store.getters.logined">
+                logout<v-icon right>logout</v-icon>
+              </v-btn>
+            </v-toolbar-items>
           </v-toolbar>
           <v-content>
             <router-view />
