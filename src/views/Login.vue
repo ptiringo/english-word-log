@@ -12,7 +12,10 @@ export default {
     const instance = firebaseui.auth.AuthUI.getInstance();
     const el = "#firebaseui-auth-container";
     const config = {
-      signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+      ],
       signInSuccessUrl: "https://english-word-log.tokyo/"
     };
 
