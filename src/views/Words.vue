@@ -21,7 +21,7 @@
     </v-form>
 
     <!-- 登録された単語の表示領域 -->
-    <v-data-table :headers="headers" :items="words" :pagination="pagination">
+    <v-data-table :headers="headers" :items="words" :pagination.sync="pagination">
       <template v-slot:items="props">
         <td>{{ props.item.registeredAt | date }}</td>
         <td>{{ props.item.level }}</td>
@@ -50,8 +50,8 @@ export default {
       { text: "レベル", value: "level" },
       { text: "単語", value: "word" },
       { text: "意味", value: "meaning" },
-      { text: "リンク", value: "link" },
-      { text: "削除", value: "delete" }
+      { text: "リンク", value: "link", sortable: false },
+      { text: "削除", value: "delete", sortable: false }
     ],
     pagination: {
       descending: true,
