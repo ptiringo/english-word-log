@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
-    <title>英単語記録帳</title>
+    <title>goi notebook</title>
   </head>
 
   <body>
@@ -14,7 +14,7 @@
       <v-app>
         <v-container>
           <v-toolbar absolute dark app>
-            <v-toolbar-title>英単語記録帳</v-toolbar-title>
+            <v-toolbar-title>goi notebook</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn flat :disabled="true" v-show="$store.getters.logined"> {{ $store.getters.userName }}</v-btn>

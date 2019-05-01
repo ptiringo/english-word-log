@@ -1,6 +1,6 @@
 {
   "name": "english-word-log",
-  "description": "英単語記録帳",
+  "description": "goi notebook",
   "scripts": {
     "start": "webpack-dev-server --open --hot",
     "deploy": "npm run build && firebase deploy",
