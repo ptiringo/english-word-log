@@ -1,5 +1,16 @@
 <template>
-  <div id="firebaseui-auth-container"></div>
+  <v-container>
+    <v-layout row wrap justify-center>
+      <v-flex xs4>
+        <div class="text-xs-center">
+          <v-img src="static/goi_logo.png"></v-img>
+        </div>
+      </v-flex>
+      <v-flex xs12>
+        <div id="firebaseui-auth-container"></div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
