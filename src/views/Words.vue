@@ -33,6 +33,11 @@
           <v-btn v-on:click="deleteWord($event, props.item.id)">削除</v-btn>
         </td>
       </template>
+      <template v-slot:no-data>
+        <v-alert :value="true" color="warning" icon="priority_high" outline>
+          単語はまだ登録されていません。
+        </v-alert>
+      </template>
     </v-data-table>
   </div>
 </template>
