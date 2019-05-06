@@ -5,13 +5,13 @@
       <v-container>
         <v-layout>
           <v-flex xs4>
-            <v-text-field v-model="newWord" label="単語" ref="newWordTextField"></v-text-field>
+            <v-text-field maxlength="100" v-model="newWord" label="単語" ref="newWordTextField"></v-text-field>
           </v-flex>
           <v-flex xs6>
-            <v-text-field v-model="newWordMeaning" label="意味"></v-text-field>
+            <v-text-field maxlength="500" v-model="newWordMeaning" label="意味"></v-text-field>
           </v-flex>
           <v-flex xs1>
-            <v-text-field v-model.number="newWordLevel" label="レベル"></v-text-field>
+            <v-text-field type="number" min="0" max="100" v-model.number="newWordLevel" label="レベル"></v-text-field>
           </v-flex>
           <v-flex xs1>
             <v-btn @click="addWord">登録</v-btn>
