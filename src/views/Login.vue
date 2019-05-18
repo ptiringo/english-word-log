@@ -1,14 +1,17 @@
 <template>
-  <v-container>
-    <v-layout row wrap justify-center>
-      <v-flex xs4>
-        <div class="text-xs-center">
+  <v-container fluid>
+    <v-layout column align-center justify-center>
+      <v-flex xs-12>
+        <v-card flat color="rgba(0, 0, 0, 0.0)" width="300">
           <v-img src="static/goi_logo.png"></v-img>
-        </div>
+        </v-card>
       </v-flex>
+      <p class="headline">goi notebook is the notebook for record vocabularies</p>
       <v-flex xs12>
         <div id="firebaseui-auth-container"></div>
       </v-flex>
+    </v-layout>
+    <v-layout>
     </v-layout>
   </v-container>
 </template>
