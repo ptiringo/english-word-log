@@ -6,12 +6,27 @@
           <v-img src="static/goi_logo.png"></v-img>
         </v-card>
       </v-flex>
-      <p class="headline">goi notebook is the notebook for record vocabularies</p>
-      <v-flex xs12>
+      <p class="title">goi notebook is the notebook for recording your new vocabularies</p>
+      <v-flex xs-12>
         <div id="firebaseui-auth-container"></div>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <v-layout row align-center justify-center>
+      <v-flex ma-2 xs-3>
+        <v-card elevation="1">
+          <v-card-text>aaa</v-card-text>
+        </v-card>
+      </v-flex>
+      <v-flex ma-2 xs-3>
+        <v-card elevation="1">
+          <v-card-text>aaa</v-card-text>
+        </v-card>
+      </v-flex>
+      <v-flex ma-2 xs-3>
+        <v-card elevation="1">
+          <v-card-text>aaa</v-card-text>
+        </v-card>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
