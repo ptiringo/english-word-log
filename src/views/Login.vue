@@ -11,19 +11,19 @@
         <div id="firebaseui-auth-container"></div>
       </v-flex>
     </v-layout>
-    <v-layout row align-center justify-center>
-      <v-flex ma-2 xs-3>
-        <v-card elevation="1">
+    <v-layout row wrap align-center justify-center>
+      <v-flex xs12 md4>
+        <v-card class="ma-1" elevation="1">
           <v-card-text>aaa</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex ma-2 xs-3>
-        <v-card elevation="1">
+      <v-flex xs12 md4>
+        <v-card class="ma-1" elevation="1">
           <v-card-text>aaa</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex ma-2 xs-3>
-        <v-card elevation="1">
+      <v-flex xs12 md4>
+        <v-card class="ma-1" elevation="1">
           <v-card-text>aaa</v-card-text>
         </v-card>
       </v-flex>
