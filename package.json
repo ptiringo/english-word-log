@@ -22,12 +22,12 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "firebase": "^6.5.0",
-    "firebaseui": "^4.1.0",
+    "firebase": "^6.6.0",
+    "firebaseui": "^4.2.0",
     "luxon": "^1.17.2",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
